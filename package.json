@@ -7,12 +7,17 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fmt": "prettier -l './**/*.{js,jsx,ts,tsx,json,css,scss}'"
   },
   "dependencies": {
     "astro": "^3.2.4"
   },
   "devDependencies": {
-    "bun-types": "^1.0.5"
+    "@pandacss/astro": "^0.15.5",
+    "@pandacss/dev": "^0.15.5",
+    "bun-types": "^1.0.5",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0"
   }
 }

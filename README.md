@@ -9,5 +9,5 @@ bun install
 ## Run the development server
 
 ```
-bunx --bun astro dev
+bun dev
 ```
