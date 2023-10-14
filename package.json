@@ -12,6 +12,7 @@
     "fmt": "prettier -l './**/*.{js,jsx,ts,tsx,json,css,scss}'"
   },
   "dependencies": {
+    "@astrojs/mdx": "^1.1.2",
     "astro": "^3.2.4"
   },
   "devDependencies": {
