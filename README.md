@@ -9,5 +9,6 @@ bun install
 ## Run the development server
 
 ```
+bun prepare
 bun dev
 ```
