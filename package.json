@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fmt": "prettier -l './**/*.{js,jsx,ts,tsx,json,css,scss}'"
+    "fmt": "prettier -w -l './**/*.{js,jsx,ts,tsx,json,css,scss,astro}'"
   },
   "dependencies": {
     "@astrojs/mdx": "^1.1.2",
