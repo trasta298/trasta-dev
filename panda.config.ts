@@ -3,27 +3,19 @@ import { defineConfig } from "@pandacss/dev"
 const theme = {
   tokens: {
     colors: {
-      red: { value: '#EE0F0F' },
-      green: { value: '#0FEE0F' },
-      darkred: { value: '#660000' },
-      darkgreen: { value: '#006600' },
       white: { value: '#fafafa' },
-      dark: { value: '#171717' },
+      black: { value: '#171717' },
     }
   },
   semanticTokens: {
     colors: {
-      danger: {
-        value: { base: '{colors.red}', _dark: '{colors.darkred}' },
-        description: 'Dangerous color'
-      },
-      success: {
-        value: { base: '{colors.green}', _dark: '{colors.darkgreen}' },
-        description: 'Success color'
-      },
       bg: {
-        value: { base: '{colors.white}', _dark: '{colors.dark}' },
+        value: { base: '{colors.white}', _dark: '{colors.black}' },
         description: 'Background color'
+      },
+      text: {
+        value: { base: '{colors.black}', _dark: '{colors.white}' },
+        description: 'Text color'
       },
     }
   }
