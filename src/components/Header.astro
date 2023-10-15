@@ -1,4 +1,5 @@
 ---
+import ThemeIcon from './ThemeIcon.astro'
 import { css } from '../../styled-system/css'
 ---
 
@@ -23,15 +24,12 @@ import { css } from '../../styled-system/css'
   >
     <div
       class={css({
-        w: '40px',
-        h: '40px',
-        borderRadius: '50%',
-        overflow: 'hidden',
         gridColumn: '1 / 2',
+        fontSize: '24px',
       })}
     >
       <a href="/">
-        <img src="itika.png" alt="logo" />
+        trasta.dev
       </a>
     </div>
     <div
@@ -42,14 +40,8 @@ import { css } from '../../styled-system/css'
         justifyContent: 'flex-end',
       })}
     >
-      <div class={css({ mr: '16px' })}>
-        <a href="/about">About</a>
-      </div>
-      <div class={css({ mr: '16px' })}>
-        <a href="/works">Works</a>
-      </div>
-      <div class={css({ mr: '16px' })}>
-        <a href="/blog">Blog</a>
+      <div class={css({ userSelect: 'none' })}>
+        <ThemeIcon />
       </div>
     </div>
   </div>
