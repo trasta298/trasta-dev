@@ -14,21 +14,43 @@ import { css } from '../../styled-system/css'
 >
   <div
     class={css({
-      display: 'flex',
+      display: 'grid',
+      gridTemplateColumns: 'auto 1fr',
       alignItems: 'center',
       w: '1024px',
+      px: '16px',
     })}
   >
     <div
       class={css({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '32px',
-        fontWeight: 'bold',
+        w: '40px',
+        h: '40px',
+        borderRadius: '50%',
+        overflow: 'hidden',
+        gridColumn: '1 / 2',
       })}
     >
-      <a href="/">Content</a>
+      <a href="/">
+        <img src="itika.png" alt="logo" />
+      </a>
+    </div>
+    <div
+      class={css({
+        gridColumn: '2 / 3',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+      })}
+    >
+      <div class={css({ mr: '16px' })}>
+        <a href="/about">About</a>
+      </div>
+      <div class={css({ mr: '16px' })}>
+        <a href="/works">Works</a>
+      </div>
+      <div class={css({ mr: '16px' })}>
+        <a href="/blog">Blog</a>
+      </div>
     </div>
   </div>
 </header>
