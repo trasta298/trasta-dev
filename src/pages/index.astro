@@ -1,12 +1,82 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { css } from '../../styled-system/css'
+import { css, cx } from '../../styled-system/css'
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <div class={css({ fontSize: '2xl', fontWeight: 'bold' })}>
-      Welcome to <a href="https://astro.build">Astro</a>!
+<Layout title="trasta">
+  <main
+    class={css({
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100%',
+      width: '100%',
+    })}
+  >
+    <label
+      class={css({
+        w: '300px',
+        h: '300px',
+        borderRadius: '50%',
+        overflow: 'hidden',
+        border: '4px solid black',
+      })}
+    >
+      <input
+        type="checkbox"
+        class={cx(css({ display: 'none' }), 'rotation-toggle')}
+      />
+      <div
+        class={cx(
+          css({
+            w: '100%',
+            h: '100%',
+            animation: 'spin 2s forwards paused infinite linear',
+            '&:hover': {
+              animationPlayState: 'running',
+              cursor: 'pointer',
+            },
+          }),
+          'tracat-wrapper'
+        )}
+      >
+        <img
+          src="tracat.png"
+          alt="trasta"
+          class={cx(
+            css({
+              animation: 'spin 4s forwards paused infinite linear reverse',
+              '&:hover': {
+                animationPlayState: 'running',
+              },
+            }),
+            'tracat-img'
+          )}
+        />
+      </div>
+    </label>
+    <div
+      class={css({
+        mt: '30px',
+        fontSize: '24px',
+      })}
+    >
+      👋 Hi, I'm trasta. <a
+        href="/about"
+        class={css({
+          textDecoration: 'underline',
+        })}>About me.</a
+      >
     </div>
   </main>
 </Layout>
+
+<style>
+  .rotation-toggle:checked ~ .tracat-wrapper {
+    animation-play-state: paused;
+  }
+  .rotation-toggle:checked ~ .tracat-img {
+    animation-play-state: running;
+  }
+</style>

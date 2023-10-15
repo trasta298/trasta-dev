@@ -3,7 +3,17 @@ import ThemeIcon from './ThemeIcon.astro'
 import { css } from '../../styled-system/css'
 ---
 
-<div class={css({ display: 'flex', alignItems: 'center' })}>
-  <ThemeIcon />
-  <span class={css({ ml: 2 })}>Dark Mode</span>
-</div>
+<footer
+  class={css({
+    w: '100vw',
+    h: '64px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bg: 'bgSecond',
+  })}
+>
+  <div class={css({ display: 'flex', alignItems: 'center' })}>
+    <ThemeIcon />
+  </div>
+</footer>

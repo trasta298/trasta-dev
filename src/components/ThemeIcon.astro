@@ -2,7 +2,14 @@
 import { css } from '../../styled-system/css'
 ---
 
-<div id="themeToggle">
+<div
+  id="themeToggle"
+  class={css({
+    padding: 4,
+    cursor: 'pointer',
+    zIndex: 100,
+  })}
+>
   <svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path
       class={css({ fill: 'black', _dark: { fill: 'transparent' } })}

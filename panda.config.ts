@@ -5,6 +5,8 @@ const theme = {
     colors: {
       white: { value: '#fafafa' },
       black: { value: '#171717' },
+      gray: { value: '#e5e5e5' },
+      dark: { value: '#262626' },
     },
   },
   semanticTokens: {
@@ -13,12 +15,23 @@ const theme = {
         value: { base: '{colors.white}', _dark: '{colors.black}' },
         description: 'Background color',
       },
+      bgSecond: {
+        value: { base: '{colors.gray}', _dark: '{colors.dark}' },
+        description: 'Alternate background color',
+      },
       text: {
         value: { base: '{colors.black}', _dark: '{colors.white}' },
         description: 'Text color',
       },
     },
   },
+  extends: {
+    keyframes: {
+      spin: {
+        to: { transform: 'rotate(360deg)' },
+      },
+    }
+  }
 }
 
 export default defineConfig({
