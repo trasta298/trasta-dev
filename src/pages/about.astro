@@ -11,36 +11,42 @@ import { css, cx } from '../../styled-system/css'
       flexDirection: 'column',
       alignItems: 'center',
       height: '100%',
-      width: '100%',
+      width: '100vw',
     })}
   >
     <div
       class={css({
-        w: '1024px',
+        w: 'min(100%, 1024px)',
         px: '16px',
-        py: '64px',
+        py: '48px',
       })}
     >
       <div
         class={css({
           display: 'flex',
-          pl: '64px',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          width: '100%',
         })}
       >
-        <Icon width="150px" height="150px" />
+        <div class={css({})}>
+          <Icon width="140px" height="140px" />
+        </div>
         <div
           class={css({
-            ml: '48px',
             padding: '16px 0',
+            '@media (min-width: 600px)': {
+              px: '32px',
+            },
           })}
         >
           <div
             class={css({
-              fontSize: '2.7rem',
+              fontSize: '2.5rem',
               fontWeight: '600',
             })}
           >
-            trasta / <span class={css({ fontSize: '2.2rem', fontWeight: '700' })}
+            trasta / <span class={css({ fontSize: '2rem', fontWeight: '700' })}
               >とらすた</span
             >
           </div>
