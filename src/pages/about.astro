@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
 import ProfileCard from '../components/ProfileCard.astro'
 import { Content as Profile } from '../components/Profile.mdx'
 import { css } from '../../styled-system/css'
+
+import itika from '../assets/itika.png'
 ---
 
 <Layout title="trasta">
@@ -12,12 +15,13 @@ import { css } from '../../styled-system/css'
       flexDirection: 'column',
       alignItems: 'center',
       height: '100%',
-      width: '100vw',
+      width: '100%',
     })}
   >
     <div
       class={css({
-        w: 'min(100%, 1024px)',
+        maxWidth: '1024px',
+        width: '100%',
         px: '16px',
         py: '48px',
       })}
@@ -25,6 +29,20 @@ import { css } from '../../styled-system/css'
       <ProfileCard />
       <div class={css({ mt: '64px' })}>
         <Profile />
+      </div>
+      <h1 class={css({ mt: '32px' })}>やってきたこと</h1>
+      <div
+        class={css({
+          mt: '32px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '16px',
+        })}
+      >
+        <Card image={itika} title="portfolio" description="trasta's page"/>
+        <Card image={itika} title="portfolio" description="trasta's page"/>
+        <Card image={itika} title="portfolio" description="trasta's page"/>
+        <Card image={itika} title="portfolio" description="trasta's page"/>
       </div>
     </div>
   </main>

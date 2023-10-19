@@ -37,7 +37,7 @@ const theme = {
 
 const globalCss  = {
   'h1': {
-    'font-size': '2.2rem',
+    'font-size': '2rem',
     'font-weight': '700',
     'margin': '30px 0 24px',
     'line-height': '1.7',
