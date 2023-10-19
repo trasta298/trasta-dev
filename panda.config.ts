@@ -74,6 +74,9 @@ const globalCss  = {
   'a': {
     'color': 'primary',
     'text-decoration': 'none',
+    '&:hover': {
+      'text-decoration': 'underline',
+    }
   },
   'pre': {
     'margin': '16px 0',
