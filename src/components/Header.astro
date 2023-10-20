@@ -53,8 +53,13 @@ import { css } from '../../styled-system/css'
 </header>
 
 <script is:inline>
-  const titleA = document.getElementById('titleA')
-  if (location.pathname === '/about') {
-    titleA?.setAttribute('href', '/')
+  const setHref = () => {
+    const titleA = document.getElementById('titleA')
+    console.log(location.pathname)
+    if (location.pathname === '/about') {
+      titleA?.setAttribute('href', '/')
+    }
   }
+  setHref()
+  document.addEventListener('astro:after-swap', setHref)
 </script>
