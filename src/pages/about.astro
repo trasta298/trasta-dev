@@ -42,18 +42,21 @@ const worksEntries = await getCollection('works')
         })}
       >
         {
-          worksEntries.map(entry => (
-            <a
-              href={`/works/${entry.slug}`}
-              class={css({ color: 'text', textDecoration: 'none' })}
-            >
-              <Card
-                title={entry.data.title}
-                description={entry.data.description}
-                image={entry.data.cover}
-              />
-            </a>
-          ))
+          worksEntries
+            .filter(entry => !entry.data.draft)
+            .sort((a, b) => (b.data.date < a.data.date ? 1 : -1))
+            .map(entry => (
+              <a
+                href={`/works/${entry.slug}`}
+                class={css({ color: 'text', textDecoration: 'none' })}
+              >
+                <Card
+                  title={entry.data.title}
+                  description={entry.data.description}
+                  image={entry.data.cover}
+                />
+              </a>
+            ))
         }
       </div>
     </div>
