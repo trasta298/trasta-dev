@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { css } from '../../styled-system/css'
+import itika from '../assets/itika.png'
 ---
 
-<Layout title="404 Not Found">
+<Layout title="404 Not Found" description="404 Not Found trasta's page" thumbnail={itika.src}>
   <main>
     <div class={css({ fontWeight: '600' })}>
       <h1>404 Not Found</h1>

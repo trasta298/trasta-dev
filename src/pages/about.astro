@@ -6,11 +6,12 @@ import { Content as Profile } from '../components/Profile.mdx'
 import { css } from '../../styled-system/css'
 
 import { getCollection } from 'astro:content'
+import itika from '../assets/itika.png'
 
 const worksEntries = await getCollection('works')
 ---
 
-<Layout title="trasta">
+<Layout title="trasta" description="trastaのぺーじ" thumbnail={itika.src}>
   <main
     class={css({
       display: 'flex',

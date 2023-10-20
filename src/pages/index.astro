@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import Icon from '../components/Icon.astro'
 import { css } from '../../styled-system/css'
+import itika from '../assets/itika.png'
 ---
 
-<Layout title="trasta.dev">
+<Layout title="trasta.dev" description="trastaのぺーじ" thumbnail={itika.src}>
   <main
     class={css({
       display: 'flex',
