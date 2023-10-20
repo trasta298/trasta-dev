@@ -3,10 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
 import { css } from '../../../styled-system/css'
-import type {
-  InferGetStaticPropsType,
-  GetStaticPaths,
-} from 'astro'
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro'
 
 export const getStaticPaths = (async () => {
   const worksEntries = await getCollection('works')
@@ -49,8 +46,9 @@ const { Content } = await entry.render()
           mt: '48px',
           borderRadius: '6px',
         })}
+        transition:name={entry.data.cover.src}
       />
-      <h1>{entry.data.title}</h1>
+      <h1 transition:name={entry.data.title}>{entry.data.title}</h1>
       <div
         class={css({
           mt: '-6px',

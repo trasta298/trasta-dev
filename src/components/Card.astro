@@ -26,9 +26,10 @@ const { image, title, description } = Astro.props
       borderRadius: '8px 8px 0 0',
       overflow: 'hidden',
     })}
+    transition:name={image.src}
   />
   <div class={css({ p: '8px 12px 12px 12px' })}>
-    <div class={css({ fontSize: '1.2rem', fontWeight: '700' })}>
+    <div class={css({ fontSize: '1.2rem', fontWeight: '700' })} transition:name={title}>
       {title}
     </div><div>
       {description}
