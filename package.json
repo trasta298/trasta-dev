@@ -12,11 +12,11 @@
     "fmt": "prettier -w -l './**/*.{js,jsx,ts,tsx,json,css,scss,astro}'"
   },
   "trustedDependencies": [
-     "sharp"
+    "sharp"
   ],
   "dependencies": {
     "@astrojs/mdx": "^1.1.2",
-    "astro": "^3.2.4",
+    "astro": "^3.3.2",
     "sharp": "0.33.0-alpha.9"
   },
   "devDependencies": {

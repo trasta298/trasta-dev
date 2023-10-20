@@ -44,7 +44,7 @@ const worksEntries = await getCollection('works')
         {
           worksEntries.map(entry => (
             <a
-              href={`works/${entry.slug}`}
+              href={`/works/${entry.slug}`}
               class={css({ color: 'text', textDecoration: 'none' })}
             >
               <Card
