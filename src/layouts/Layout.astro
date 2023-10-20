@@ -3,8 +3,6 @@ import Header from '../components/Header.astro'
 import { ViewTransitions } from 'astro:transitions'
 import { css } from '../../styled-system/css'
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://trasta.dev')
-
 interface Props {
   title: string
   description: string
@@ -12,6 +10,9 @@ interface Props {
 }
 
 const { title, description, thumbnail } = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://trasta.dev')
+const thumbnailURL = new URL(thumbnail, 'https://trasta.dev')
 ---
 
 <!doctype html>
@@ -26,7 +27,7 @@ const { title, description, thumbnail } = Astro.props
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={thumbnail} />
+    <meta property="og:image" content={thumbnailURL} />
     <meta property="og:url" content={canonicalURL} />
     <meta name="twitter:card" content="summary_large_image" />
 
