@@ -29,7 +29,13 @@ import { css } from '../../styled-system/css'
         fontSize: '24px',
       })}
     >
-      <a href="/" class={css({ color: 'text', 'textDecoration': 'none' })}> trasta.dev</a>
+      <a
+        id="titleA"
+        href="/about"
+        class={css({ color: 'text', textDecoration: 'none' })}
+      >
+        trasta.dev</a
+      >
     </div>
     <div
       class={css({
@@ -45,3 +51,10 @@ import { css } from '../../styled-system/css'
     </div>
   </div>
 </header>
+
+<script is:inline>
+  const titleA = document.getElementById('titleA')
+  if (location.pathname === '/about') {
+    titleA?.setAttribute('href', '/')
+  }
+</script>
