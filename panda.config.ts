@@ -47,7 +47,7 @@ const globalCss  = {
     'line-height': '1.5',
   },
   'h2': {
-    'font-size': '1.8rem',
+    'font-size': '1.5rem',
     'font-weight': '700',
     'margin': '20px 0 8px',
   },
