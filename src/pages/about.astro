@@ -6,6 +6,8 @@ import { Content as Profile } from '../components/Profile.mdx'
 import { css } from '../../styled-system/css'
 
 import itika from '../assets/itika.png'
+import { getCollection } from 'astro:content'
+const allWorksPosts = await getCollection('works')
 ---
 
 <Layout title="trasta">
@@ -39,10 +41,10 @@ import itika from '../assets/itika.png'
           gap: '16px',
         })}
       >
-        <Card image={itika} title="portfolio" description="trasta's page"/>
-        <Card image={itika} title="portfolio" description="trasta's page"/>
-        <Card image={itika} title="portfolio" description="trasta's page"/>
-        <Card image={itika} title="portfolio" description="trasta's page"/>
+        <Card image={itika} title="portfolio" description="trasta's page" />
+        <Card image={itika} title="portfolio" description="trasta's page" />
+        <Card image={itika} title="portfolio" description="trasta's page" />
+        <Card image={itika} title="portfolio" description="trasta's page" />
       </div>
     </div>
   </main>

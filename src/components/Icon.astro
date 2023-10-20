@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets'
 import { css, cx } from '../../styled-system/css'
+import tracat from '../assets/tracat.png'
 interface Props {
   width: string
   height: string
@@ -31,8 +33,8 @@ const { width, height } = Astro.props
         'tracat-wrapper'
       )}
     >
-      <img
-        src="tracat.png"
+      <Image
+        src={tracat}
         alt="trasta"
         class={cx(
           css({

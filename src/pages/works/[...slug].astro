@@ -1,0 +1,88 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
+import Layout from '../../layouts/Layout.astro'
+import { css } from '../../../styled-system/css'
+import type {
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from 'astro'
+
+export const getStaticPaths = (async () => {
+  const worksEntries = await getCollection('works')
+  return worksEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry, tags: entry.data.tags },
+  }))
+}) satisfies GetStaticPaths
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Layout title={entry.data.title}>
+  <main
+    class={css({
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      height: '100%',
+      width: '100%',
+    })}
+  >
+    <div
+      class={css({
+        maxWidth: '900px',
+        width: '100%',
+        px: '16px',
+        pb: '48px',
+      })}
+    >
+      <Image
+        src={entry.data.cover}
+        alt={entry.data.title}
+        class={css({
+          width: '100%',
+          height: 'auto',
+          mt: '48px',
+          borderRadius: '6px',
+        })}
+      />
+      <h1>{entry.data.title}</h1>
+      <div
+        class={css({
+          mt: '-6px',
+          mb: '48px',
+          width: '100%',
+          color: 'textSecond',
+        })}
+      >
+        <div>
+          {
+            entry.data.tags.map(tag => (
+              <span
+                class={css({
+                  display: 'inline-block',
+                  px: '6px',
+                  mr: '6px',
+                  my: '4px',
+                  borderRadius: '4px',
+                  fontSize: '0.8rem',
+                  border: '1px solid',
+                })}
+              >
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+        <div class={css({ fontSize: '0.9rem', mt: '4px' })}>
+          {entry.data.date}
+        </div>
+      </div>
+      <Content />
+    </div>
+  </main>
+</Layout>

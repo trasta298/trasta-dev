@@ -24,6 +24,10 @@ const theme = {
         value: { base: '{colors.black}', _dark: '{colors.white}' },
         description: 'Text color',
       },
+      textSecond: {
+        value: { base: '{colors.dark}', _dark: '{colors.gray}' },
+        description: 'Alternate background color',
+      },
     },
   },
   extends: {
@@ -39,17 +43,13 @@ const globalCss  = {
   'h1': {
     'font-size': '2rem',
     'font-weight': '700',
-    'margin': '30px 0 24px',
-    'line-height': '1.7',
-    'border-bottom': {
-      'base': '1px solid gray',
-      '_dark': '1px solid dark',
-    }
+    'margin': '32px 0 16px',
+    'line-height': '1.5',
   },
   'h2': {
     'font-size': '1.8rem',
     'font-weight': '700',
-    'margin': '20px 0 14px',
+    'margin': '20px 0 8px',
   },
   'h3': {
     'font-size': '1.4rem',
