@@ -5,9 +5,7 @@ const worksCollection = defineCollection({
   schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
-    cover: image().refine((img) => img.width >= 800, {
-      message: "カバー画像は幅800ピクセル以上でなければなりません",
-    }),
+    cover: image(),
     date: z.string(),
     tags: z.array(z.string()),
     draft: z.boolean().optional(),
