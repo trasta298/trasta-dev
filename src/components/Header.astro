@@ -55,8 +55,7 @@ import { css } from '../../styled-system/css'
 <script is:inline>
   const setHref = () => {
     const titleA = document.getElementById('titleA')
-    console.log(location.pathname)
-    if (location.pathname === '/about') {
+    if (location.pathname === '/about' || location.pathname === '/about/') {
       titleA?.setAttribute('href', '/')
     }
   }
