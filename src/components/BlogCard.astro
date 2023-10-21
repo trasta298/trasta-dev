@@ -4,9 +4,10 @@ interface Props {
   emoji: string
   title: string
   date: string
+  domain: string
 }
 
-const { emoji, title, date } = Astro.props
+const { emoji, title, date, domain } = Astro.props
 ---
 
 <div
@@ -45,6 +46,17 @@ const { emoji, title, date } = Astro.props
           transition:name={date}
         >
           {date}
+          {
+            domain !== 'trasta.dev' && (
+              <span
+                class={css({
+                  ml: '4px',
+                })}
+              >
+                ({domain})
+              </span>
+            )
+          }
         </div>
       </div>
     </div>

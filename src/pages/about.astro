@@ -10,7 +10,33 @@ import { getCollection } from 'astro:content'
 import itika from '../assets/itika.png'
 
 const worksEntries = await getCollection('works')
-const blogEntries = await getCollection('blog')
+const blogEntriesRaw = await getCollection('blog')
+const blogEntries = blogEntriesRaw
+  .filter(entry => !entry.data.draft)
+  .map(entry => ({
+    href: `/blog/${entry.slug}`,
+    title: entry.data.title,
+    date: entry.data.date,
+    emoji: entry.data.emoji,
+    domain: 'trasta.dev',
+  }))
+const externalEntries = [
+  {
+    href: 'https://trap.jp/post/1262/',
+    title: '2020年度を振り返って',
+    date: '2021/04/01',
+    emoji: '📝',
+    domain: 'trap.jp',
+  },
+  {
+    href: 'https://trap.jp/post/1365/',
+    title: 'ICTSC 夏の陣に参加してきました',
+    date: '2021/08/29',
+    emoji: '🏓',
+    domain: 'trap.jp',
+  }
+]
+const blogs = [...blogEntries, ...externalEntries]
 ---
 
 <Layout title="trasta" description="trastaのぺーじ" thumbnail={itika.src}>
@@ -68,23 +94,24 @@ const blogEntries = await getCollection('blog')
         class={css({
           mt: '32px',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(min(400px, 90%), 1fr))',
-          gap: '24px',
+          gridTemplateColumns:
+            'repeat(auto-fill, minmax(min(400px, 90%), 1fr))',
+          gap: '16px',
         })}
       >
         {
-          blogEntries
-            .filter(entry => !entry.data.draft)
-            .sort((a, b) => (b.data.date > a.data.date ? 1 : -1))
+          blogs
+            .sort((a, b) => (b.date > a.date ? 1 : -1))
             .map(entry => (
               <a
-                href={`/blog/${entry.slug}`}
+                href={entry.href}
                 class={css({ color: 'text', textDecoration: 'none' })}
               >
                 <BlogCard
-                  emoji={entry.data.emoji}
-                  title={entry.data.title}
-                  date={entry.data.date}
+                  emoji={entry.emoji}
+                  title={entry.title}
+                  date={entry.date}
+                  domain={entry.domain}
                 />
               </a>
             ))
