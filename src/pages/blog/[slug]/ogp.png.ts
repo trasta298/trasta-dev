@@ -76,7 +76,7 @@ export async function GET({ props }: Props) {
       ],
       tw: 'w-full h-full flex items-center justify-center relative px-22',
       style: {
-        background: '#f7f8e8',
+        background: '#fafafa',
         fontFamily: 'Noto Sans JP Regular',
       },
     },
