@@ -11,8 +11,9 @@ interface Props {
 
 const { title, description, thumbnail } = Astro.props
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://trasta.dev')
-const thumbnailURL = new URL(thumbnail, 'https://trasta.dev')
+const domain = 'https://trasta.dev'
+const canonicalURL = new URL(Astro.url.pathname, domain)
+const thumbnailURL = new URL(thumbnail, domain)
 ---
 
 <!doctype html>

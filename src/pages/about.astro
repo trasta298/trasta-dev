@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
+import BlogCard from '../components/BlogCard.astro'
 import ProfileCard from '../components/ProfileCard.astro'
 import { Content as Profile } from '../components/Profile.mdx'
 import { css } from '../../styled-system/css'
@@ -9,6 +10,7 @@ import { getCollection } from 'astro:content'
 import itika from '../assets/itika.png'
 
 const worksEntries = await getCollection('works')
+const blogEntries = await getCollection('blog')
 ---
 
 <Layout title="trasta" description="trastaのぺーじ" thumbnail={itika.src}>
@@ -26,7 +28,8 @@ const worksEntries = await getCollection('works')
         maxWidth: '1024px',
         width: '100%',
         px: '16px',
-        py: '48px',
+        pt: '48px',
+        pb: '64px',
       })}
     >
       <ProfileCard />
@@ -36,7 +39,7 @@ const worksEntries = await getCollection('works')
       <h1 class={css({ mt: '32px' })}>やってきたこと</h1>
       <div
         class={css({
-          mt: '32px',
+          py: '32px',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: '16px',
@@ -55,6 +58,33 @@ const worksEntries = await getCollection('works')
                   title={entry.data.title}
                   description={entry.data.description}
                   image={entry.data.cover}
+                />
+              </a>
+            ))
+        }
+      </div>
+      <h1 class={css({ mt: '32px' })}>ブログ</h1>
+      <div
+        class={css({
+          mt: '32px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+          gap: '24px',
+        })}
+      >
+        {
+          blogEntries
+            .filter(entry => !entry.data.draft)
+            .sort((a, b) => (b.data.date > a.data.date ? 1 : -1))
+            .map(entry => (
+              <a
+                href={`/blog/${entry.slug}`}
+                class={css({ color: 'text', textDecoration: 'none' })}
+              >
+                <BlogCard
+                  emoji={entry.data.emoji}
+                  title={entry.data.title}
+                  date={entry.data.date}
                 />
               </a>
             ))

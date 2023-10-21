@@ -41,15 +41,15 @@ const theme = {
 
 const globalCss  = {
   'h1': {
-    'font-size': '2rem',
+    'font-size': '2.2rem',
     'font-weight': '700',
-    'margin': '32px 0 16px',
+    'margin': '42px 0 22px',
     'line-height': '1.5',
   },
   'h2': {
-    'font-size': '1.5rem',
+    'font-size': '1.6rem',
     'font-weight': '700',
-    'margin': '20px 0 8px',
+    'margin': '42px 0 22px',
   },
   'h3': {
     'font-size': '1.4rem',

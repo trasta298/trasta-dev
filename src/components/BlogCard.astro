@@ -1,0 +1,52 @@
+---
+import { css } from '../../styled-system/css'
+interface Props {
+  emoji: string
+  title: string
+  date: string
+}
+
+const { emoji, title, date } = Astro.props
+---
+
+<div
+  class={css({
+    bg: 'bgSecond',
+    borderRadius: '8px',
+    height: '100%',
+  })}
+>
+  <div class={css({ p: '12px' })}>
+    <div class={css({ display: 'flex', alignItems: 'center' })}>
+      <div
+        class={css({
+          fontSize: '2rem',
+          fontWeight: '700',
+          mr: '8px',
+        })}
+        transition:name={emoji}
+      >
+        {emoji}
+      </div>
+      <div>
+        <div
+          class={css({ fontSize: '1.2rem', fontWeight: '700' })}
+          transition:name={title}
+        >
+          {title}
+        </div>
+        <div
+          class={css({
+            pt: '4px',
+            fontSize: '0.8rem',
+            fontWeight: '400',
+            color: 'textSecond',
+          })}
+          transition:name={date}
+        >
+          {date}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
