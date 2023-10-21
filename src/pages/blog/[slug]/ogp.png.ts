@@ -39,7 +39,7 @@ export async function GET({ props }: Props) {
                 type: 'div',
                 props: {
                   style: {
-                    fontSize: '48px',
+                    fontSize: '52px',
                     fontFamily: 'Noto Sans JP Bold',
                   },
                   children: post.data.title,
