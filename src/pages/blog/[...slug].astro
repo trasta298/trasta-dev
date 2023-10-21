@@ -16,13 +16,16 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry } = Astro.props
 const { Content } = await entry.render()
-import itika from '../../assets/itika.png'
+
+const url = `https://trasta.dev/blog/${entry.slug}`
+const xPostUrl = `http://x.com/share?url=${url}&text=${entry.data.title}`
 ---
 
 <Layout
   title={entry.data.title}
   description={entry.data.title}
-  thumbnail={`blog/${entry.slug}/ogp.png`}}
+  thumbnail={`blog/${entry.slug}/ogp.png`}
+  }
 >
   <main
     class={css({
@@ -80,6 +83,40 @@ import itika from '../../assets/itika.png'
         </div>
       </div>
       <Content />
+      <div
+        class={css({
+          mt: '64px',
+          pt: '24px',
+          borderTop: '1px solid',
+          borderColor: {
+            base: '#d4d4d4',
+            _dark: '#404040',
+          },
+        })}
+      >
+        <a
+          href={xPostUrl}
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          class={css({
+            display: 'flex',
+            color: 'textSecond',
+            textDecoration: 'none',
+          })}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M18.205 2.25h3.308l-7.227 8.26l8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231l5.45-6.231Zm-1.161 17.52h1.833L7.045 4.126H5.078L17.044 19.77Z"
+            ></path></svg
+          >
+          <span class={css({ ml: '4px' })}>Post</span>
+        </a>
+      </div>
     </div>
   </main>
 </Layout>

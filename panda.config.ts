@@ -7,6 +7,8 @@ const theme = {
       black: { value: '#171717' },
       gray: { value: '#e5e5e5' },
       dark: { value: '#262626' },
+      blackgray: { value: '#737373' },
+      lightdark: { value: '#a3a3a3' },
       primarylight: { value: '#ab576c' },
       primarydark: { value: '#f68da7' },
     },
@@ -26,7 +28,7 @@ const theme = {
         description: 'Text color',
       },
       textSecond: {
-        value: { base: '{colors.dark}', _dark: '{colors.gray}' },
+        value: { base: '{colors.blackgray}', _dark: '{colors.lightdark}' },
         description: 'Alternate background color',
       },
       primary: {
