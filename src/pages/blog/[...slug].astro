@@ -18,7 +18,7 @@ const { entry } = Astro.props
 const { Content } = await entry.render()
 
 const url = `https://trasta.dev/blog/${entry.slug}`
-const xPostUrl = `http://x.com/share?url=${url}&text=${entry.data.title}`
+const xPostUrl = `https://x.com/share?url=${url}&text=${entry.data.title}`
 ---
 
 <Layout
@@ -102,6 +102,7 @@ const xPostUrl = `http://x.com/share?url=${url}&text=${entry.data.title}`
             display: 'flex',
             color: 'textSecond',
             textDecoration: 'none',
+            width: 'fit-content',
           })}
         >
           <svg
