@@ -3,11 +3,12 @@ import { defineConfig } from '@pandacss/dev'
 const theme = {
   tokens: {
     colors: {
-      white: { value: '#fafafa' },
+      white: { value: '#fcfcfc' },
       black: { value: '#171717' },
       gray: { value: '#e5e5e5' },
       dark: { value: '#262626' },
-      primary: { value: '#f59e0b' },
+      primarylight: { value: '#ab576c' },
+      primarydark: { value: '#f68da7' },
     },
   },
   semanticTokens: {
@@ -27,6 +28,10 @@ const theme = {
       textSecond: {
         value: { base: '{colors.dark}', _dark: '{colors.gray}' },
         description: 'Alternate background color',
+      },
+      primary: {
+        value: { base: '{colors.primarylight}', _dark: '{colors.primarydark}' },
+        description: 'Primary color',
       },
     },
   },
@@ -73,6 +78,7 @@ const globalCss  = {
   },
   'a': {
     'color': 'primary',
+    'font-weight': '700',
     'text-decoration': 'none',
     '&:hover': {
       'text-decoration': 'underline',
