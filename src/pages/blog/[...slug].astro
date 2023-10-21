@@ -18,7 +18,7 @@ const { entry } = Astro.props
 const { Content } = await entry.render()
 
 const url = `https://trasta.dev/blog/${entry.slug}`
-const xPostUrl = `https://x.com/share?url=${url}&text=${entry.data.title}`
+const xPostUrl = `https://x.com/intent/tweet?url=${url}&text=${entry.data.title}`
 ---
 
 <Layout
