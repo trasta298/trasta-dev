@@ -59,17 +59,17 @@ const globalCss  = {
     'margin': '42px 0 22px',
   },
   'h3': {
-    'font-size': '1.4rem',
-    'font-weight': '700',
-    'margin': '18px 0 12px',
-  },
-  'h4': {
     'font-size': '1.3rem',
     'font-weight': '700',
-    'margin': '16px 0 10px',
+    'margin': '24px 0 16px',
+  },
+  'h4': {
+    'font-size': '1.2rem',
+    'font-weight': '700',
+    'margin': '18px 0 10px',
   },
   'h5': {
-    'font-size': '1.2rem',
+    'font-size': '1.1rem',
     'font-weight': '700',
     'margin': '8px 0 6px',
   },
