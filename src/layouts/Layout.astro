@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
 import { ViewTransitions } from 'astro:transitions'
 import { css } from '../../styled-system/css'
 
@@ -7,9 +8,10 @@ interface Props {
   title: string
   description: string
   thumbnail: string
+  hideFooter?: boolean
 }
 
-const { title, description, thumbnail } = Astro.props
+const { title, description, thumbnail, hideFooter } = Astro.props
 
 const domain = 'https://trasta.dev'
 const canonicalURL = new URL(Astro.url.pathname, domain)
@@ -44,14 +46,16 @@ const thumbnailURL = new URL(thumbnail, domain)
     <ViewTransitions />
 
     <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-60PX17XX9G"></script>
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-60PX17XX9G"></script>
     <script type="text/partytown">
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-60PX17XX9G');
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-60PX17XX9G')
     </script>
 
     <script is:inline>
@@ -90,5 +94,6 @@ const thumbnailURL = new URL(thumbnail, domain)
   >
     <Header />
     <div><slot /></div>
+    {!hideFooter && <Footer />}
   </body>
 </html>

@@ -1,39 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Icon from '../components/Icon.astro'
 import { css } from '../../styled-system/css'
+import { Content as PPolicy } from '../components/PrivacyPolicy.mdx'
 import itika from '../assets/itika.png'
 ---
 
 <Layout
-  title="trasta.dev"
-  description="trastaのぺーじ"
+  title="Privacy Policy"
+  description="Privacy Policy"
   thumbnail={itika.src}
-  hideFooter={true}
 >
   <main
     class={css({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
       height: '100%',
       width: '100%',
     })}
   >
-    <Icon width="250px" height="250px" />
     <div
       class={css({
-        mt: '30px',
-        fontSize: '24px',
+        maxWidth: '850px',
+        width: '100%',
+        px: '16px',
+        pt: '16px',
+        pb: '64px',
       })}
     >
-      👋 Hi, I'm trasta. <a
-        href="/about"
-        class={css({
-          textDecoration: 'underline',
-        })}>About me.</a
-      >
+      <PPolicy />
     </div>
   </main>
 </Layout>

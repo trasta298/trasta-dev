@@ -1,0 +1,25 @@
+---
+import { css } from '../../styled-system/css'
+---
+
+<footer
+  class={css({
+    w: '100%',
+    h: '64px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bg: 'bgSecond',
+    color: 'textSecond',
+  })}
+>
+  <!-- © 2023 trasta | Privacy Policy -->
+  <div class={css({ fontSize: '14px', display: 'flex' })}>
+    <div class={css({ mr: '24px' })}>© 2023 trasta</div>
+    <a
+      href="/privacy-policy"
+      class={css({ color: 'textSecond', textDecoration: 'underline' })}
+      >Privacy Policy</a
+    >
+  </div>
+</footer>
