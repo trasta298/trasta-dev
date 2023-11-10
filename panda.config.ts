@@ -48,7 +48,7 @@ const theme = {
 
 const globalCss  = {
   'h1': {
-    'font-size': '2rem',
+    'font-size': '1.6rem',
     'font-weight': '700',
     'margin': '42px 0 22px',
     'line-height': '1.5',
@@ -56,17 +56,17 @@ const globalCss  = {
   'h2': {
     'font-size': '1.5rem',
     'font-weight': '700',
-    'margin': '42px 0 22px',
+    'margin': '72px 0 24px',
   },
   'h3': {
     'font-size': '1.3rem',
     'font-weight': '700',
-    'margin': '24px 0 16px',
+    'margin': '48px 0 24px',
   },
   'h4': {
     'font-size': '1.2rem',
     'font-weight': '700',
-    'margin': '18px 0 10px',
+    'margin': '18px 0 12px',
   },
   'h5': {
     'font-size': '1.1rem',
@@ -75,8 +75,8 @@ const globalCss  = {
   },
   'p': {
     'font-size': '1rem',
-    'line-height': '1.6',
-    'margin': '0 0 16px',
+    'line-height': '1.7',
+    'margin': '0 0 24px',
   },
   'a': {
     'color': 'primary',
@@ -93,12 +93,26 @@ const globalCss  = {
   },
   'code' : {
     'font-family': `Consolas, 'Courier New', Courier, Monaco, monospace`,
+    'font-size': '0.9rem',
+    'padding': '2px 4px',
+    'border-radius': '4px',
+    'background-color': '#24292e',
+    'color': '#e1e4e8'
   },
-  'ul' : {
+  'blockquote': {
+    'margin': '-8px 0 8px',
+    'padding': '4px 16px',
+    'border-left': '4px solid #7d8590',
+    'color': '#7d8590',
+    'p': {
+      'margin': '0',
+    }
+  },
+  'ul': {
     'padding-left': '25px',
     'list-style-type': 'disc'
   },
-  'ol' : {
+  'ol': {
     'padding-left': '25px',
     'list-style-type': 'decimal'
   },
