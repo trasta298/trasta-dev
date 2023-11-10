@@ -9,7 +9,7 @@ const theme = {
       dark: { value: '#262626' },
       blackgray: { value: '#737373' },
       lightdark: { value: '#a3a3a3' },
-      primarylight: { value: '#ab576c' },
+      primarylight: { value: '#e20f60' },
       primarydark: { value: '#f68da7' },
     },
   },
