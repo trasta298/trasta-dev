@@ -21,6 +21,7 @@
     "sharp": "0.33.0-alpha.9"
   },
   "devDependencies": {
+    "@astrojs/partytown": "^2.0.2",
     "@pandacss/astro": "^0.15.5",
     "@pandacss/dev": "^0.15.5",
     "bun-types": "^1.0.5",

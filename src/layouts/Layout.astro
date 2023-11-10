@@ -43,6 +43,17 @@ const thumbnailURL = new URL(thumbnail, domain)
     <title>{title}</title>
     <ViewTransitions />
 
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-60PX17XX9G"></script>
+    <script type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-60PX17XX9G');
+    </script>
+
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined') {
