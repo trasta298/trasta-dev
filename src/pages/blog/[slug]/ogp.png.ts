@@ -51,7 +51,7 @@ export async function GET({ props }: Props) {
         {
           type: 'div',
           props: {
-            tw: 'absolute right-[40px] bottom-[40px] flex items-center h-24',
+            tw: 'absolute right-[80px] bottom-[40px] flex items-center h-24',
             children: [
               {
                 type: 'img',
