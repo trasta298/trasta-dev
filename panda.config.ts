@@ -90,6 +90,10 @@ const globalCss  = {
     'margin': '16px 0',
     'padding': '16px',
     'border-radius': '6px',
+    'max-width': '100%',
+    'code': {
+      'padding': '0',
+    }
   },
   'code' : {
     'font-family': `Consolas, 'Courier New', Courier, Monaco, monospace`,
