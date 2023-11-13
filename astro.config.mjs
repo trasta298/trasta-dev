@@ -11,5 +11,6 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), sitemap()]
+  }), sitemap()],
+  site: "https://trasta.dev",
 });
