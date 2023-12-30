@@ -114,6 +114,7 @@ const globalCss  = {
   },
   'ul': {
     'padding-left': '25px',
+    'line-height': '1.7',
     'list-style-type': 'disc'
   },
   'ol': {
