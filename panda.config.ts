@@ -95,6 +95,9 @@ const globalCss  = {
       'padding': '0',
     }
   },
+  'hr': {
+    'margin': '16px 0'
+  },
   'code' : {
     'font-family': `Consolas, 'Courier New', Courier, Monaco, monospace`,
     'font-size': '0.9rem',
