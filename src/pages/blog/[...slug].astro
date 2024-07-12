@@ -47,9 +47,12 @@ const githubUrl = `https://github.com/trasta298/trasta-dev/tree/main/src/content
       })}
     >
       <h1 transition:name={entry.data.title}>
-        <span class={css({ mr: '4px' })} transition:name={entry.data.emoji}
-          >{entry.data.emoji}</span
+        <span 
+          class={css({ mr: '4px' })}
+          transition:name={`emoji-${entry.data.title}`}
         >
+          {entry.data.emoji}
+        </span>
         {entry.data.title}
       </h1>
       <div

@@ -25,7 +25,7 @@ const { emoji, title, date, domain } = Astro.props
           fontWeight: '700',
           mr: '8px',
         })}
-        transition:name={emoji}
+        transition:name={`emoji-${title}`}
       >
         {emoji}
       </div>
