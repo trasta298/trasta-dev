@@ -1,13 +1,21 @@
 ---
 import { Image } from 'astro:assets'
 import tracat from '../assets/tracat.png'
-import { css, cx } from '../../styled-system/css'
+import { css, cx, cva } from '../../styled-system/css'
 interface Props {
-  width: string
-  height: string
+  size: 'small' | 'medium'
 }
 
-const { width, height } = Astro.props
+const { size } = Astro.props
+const sizeRecipe = cva({
+  base: { width: '140px', height: '140px' },
+  variants: {
+    type: {
+      small: { width: '140px', height: '140px' },
+      medium: { width: '250px', height: '250px' },
+    },
+  },
+})
 ---
 
 <div transition:name="trasta-icon">
@@ -19,8 +27,6 @@ const { width, height } = Astro.props
     <div
       class={cx(
         css({
-          w: width,
-          h: height,
           borderRadius: '50%',
           overflow: 'hidden',
           border: '4px solid black',
@@ -30,6 +36,7 @@ const { width, height } = Astro.props
             cursor: 'pointer',
           },
         }),
+        sizeRecipe({ type: size }),
         'tracat-wrapper'
       )}
     >
