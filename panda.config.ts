@@ -48,35 +48,44 @@ const theme = {
 
 const globalCss  = {
   'h1': {
-    'font-size': '1.6rem',
+    'font-size': '1.8rem',
     'font-weight': '700',
-    'margin': '42px 0 22px',
+    'margin': '36px 0 18px',
     'line-height': '1.5',
   },
   'h2': {
-    'font-size': '1.5rem',
+    'font-size': '1.4rem',
     'font-weight': '700',
-    'margin': '72px 0 24px',
+    'margin': '60px 0 20px',
+    'position': 'relative',
+    'padding-left': '40px',
+    '&::before': {
+      'content': '"##"',
+      'position': 'absolute',
+      'left': '0',
+      'color': 'primary',
+      'font-weight': '900',
+    }
   },
   'h3': {
-    'font-size': '1.3rem',
-    'font-weight': '700',
-    'margin': '48px 0 24px',
-  },
-  'h4': {
     'font-size': '1.2rem',
     'font-weight': '700',
-    'margin': '18px 0 12px',
+    'margin': '40px 0 20px',
+  },
+  'h4': {
+    'font-size': '1.1rem',
+    'font-weight': '700',
+    'margin': '16px 0 10px',
   },
   'h5': {
-    'font-size': '1.1rem',
+    'font-size': '1rem',
     'font-weight': '700',
     'margin': '8px 0 6px',
   },
   'p': {
-    'font-size': '1rem',
+    'font-size': '0.95rem',
     'line-height': '1.7',
-    'margin': '0 0 24px',
+    'margin': '0 0 20px',
   },
   'a': {
     'color': 'primary',
@@ -113,12 +122,22 @@ const globalCss  = {
     'color': '#7d8590',
     'p': {
       'margin': '0',
+      'padding': '0 0 0 16px',
     }
   },
   'ul': {
     'padding-left': '25px',
-    'line-height': '1.7',
-    'list-style-type': 'disc'
+    'line-height': '1.8',
+    'list-style-type': 'disc',
+    'ul': {
+      'list-style-type': 'circle',
+      'ul': {
+        'list-style-type': 'square',
+        'ul': {
+          'list-style-type': 'circle'
+        }
+      }
+    }
   },
   'ol': {
     'padding-left': '25px',
