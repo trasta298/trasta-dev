@@ -5,6 +5,8 @@ import Layout from '../../layouts/Layout.astro'
 import { css } from '../../../styled-system/css'
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro'
 
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
 export const getStaticPaths = (async () => {
   const worksEntries = await getCollection('works')
   return worksEntries.map(entry => ({
@@ -12,8 +14,6 @@ export const getStaticPaths = (async () => {
     props: { entry, tags: entry.data.tags },
   }))
 }) satisfies GetStaticPaths
-
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry } = Astro.props
 const { Content } = await entry.render()
