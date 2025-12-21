@@ -5,13 +5,19 @@ tags: ["Rust", "CLI", "Git"]
 emoji: 🌳
 ---
 
+import GitHubRepoCard from '../../components/GitHubRepoCard.astro'
+
 普段 VS Code の Git Graph 拡張が好きで使っているのですが、最近 CLI にツールを寄せようとしていて、同じようなものが欲しくなりました。探してもしっくりくるものがなかったので、自分で作ることにしました。
 
 ## リポジトリ
 
-<a href="https://github.com/trasta298/keifu">
-  <img src="https://opengraph.githubassets.com/1/trasta298/keifu" alt="trasta298/keifu" width="500" />
-</a>
+<GitHubRepoCard
+  owner="trasta298"
+  repo="keifu"
+  description="A TUI tool for visualizing Git branch graphs with interactive navigation"
+  language="Rust"
+  languageColor="#dea584"
+/>
 
 [crates.io](https://crates.io/crates/keifu) に公開しているので、Rust 環境があれば `cargo install keifu` でインストールできます。
 
