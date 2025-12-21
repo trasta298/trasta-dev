@@ -35,6 +35,14 @@ const theme = {
         value: { base: '{colors.primarylight}', _dark: '{colors.primarydark}' },
         description: 'Primary color',
       },
+      codeBg: {
+        value: { base: '#f6f8fa', _dark: '#24292e' },
+        description: 'Code block background',
+      },
+      codeText: {
+        value: { base: '#24292f', _dark: '#e1e4e8' },
+        description: 'Code text color',
+      },
     },
   },
   extends: {
@@ -100,8 +108,10 @@ const globalCss  = {
     'padding': '16px',
     'border-radius': '6px',
     'max-width': '100%',
+    'backgroundColor': 'codeBg',
     'code': {
       'padding': '0',
+      'backgroundColor': 'transparent',
     }
   },
   'hr': {
@@ -112,8 +122,8 @@ const globalCss  = {
     'font-size': '0.9rem',
     'padding': '2px 4px',
     'border-radius': '4px',
-    'background-color': '#24292e',
-    'color': '#e1e4e8'
+    'backgroundColor': 'codeBg',
+    'color': 'codeText'
   },
   'blockquote': {
     'margin': '-8px 0 8px',
