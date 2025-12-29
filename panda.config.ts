@@ -133,14 +133,22 @@ const globalCss  = {
     'p': {
       'margin': '0',
       'padding': '0 0 0 16px',
+    },
+    '&.twitter-tweet': {
+      'border-left': 'none',
+      'padding': '0',
+      'margin': '16px 0',
+      'max-width': '400px',
     }
   },
   'ul': {
     'padding-left': '25px',
     'line-height': '1.8',
     'list-style-type': 'disc',
+    'margin-bottom': '20px',
     'ul': {
       'list-style-type': 'circle',
+      'margin-bottom': '0',
       'ul': {
         'list-style-type': 'square',
         'ul': {
@@ -151,7 +159,8 @@ const globalCss  = {
   },
   'ol': {
     'padding-left': '25px',
-    'list-style-type': 'decimal'
+    'list-style-type': 'decimal',
+    'margin-bottom': '20px',
   },
 }
 
