@@ -1,25 +1,26 @@
 ---
 import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
-import Layout from '../../layouts/Layout.astro'
-import { css } from '../../../styled-system/css'
+import Layout from '../../../layouts/Layout.astro'
+import TranslationNotice from '../../../components/TranslationNotice.astro'
+import { css } from '../../../../styled-system/css'
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro'
 
-const lang = 'ja'
+const lang = 'en'
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 export const getStaticPaths = (async () => {
-  const worksEntries = await getCollection('works', ({ id }) => id.startsWith('ja/'))
+  const worksEntries = await getCollection('works', ({ id }) => id.startsWith('en/'))
   return worksEntries.map(entry => ({
-    params: { slug: entry.slug.replace(/^ja\//, '') },
+    params: { slug: entry.slug.replace(/^en\//, '') },
     props: { entry, tags: entry.data.tags },
   }))
 }) satisfies GetStaticPaths
 
 const { entry } = Astro.props
 const { Content } = await entry.render()
-const slugWithoutLang = entry.slug.replace(/^ja\//, '')
+const slugWithoutLang = entry.slug.replace(/^en\//, '')
 const alternateSlug = entry.data.translationSlug ? `works/${entry.data.translationSlug}` : undefined
 ---
 
@@ -84,6 +85,7 @@ const alternateSlug = entry.data.translationSlug ? `works/${entry.data.translati
           {entry.data.date}
         </div>
       </div>
+      <TranslationNotice />
       <Content />
     </div>
   </main>

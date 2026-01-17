@@ -1,6 +1,14 @@
 ---
 import { css } from '../../styled-system/css'
 import Icon from '../components/Icon.astro'
+import { useTranslations, type Lang } from '../i18n/utils'
+
+interface Props {
+  lang?: Lang
+}
+
+const { lang = 'ja' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <div
@@ -28,9 +36,11 @@ import Icon from '../components/Icon.astro'
         fontWeight: '600',
       })}
     >
-      trasta / <span class={css({ fontSize: '2rem', fontWeight: '700' })}
-        >とらすた</span
-      >
+      {lang === 'ja' ? (
+        <>trasta / <span class={css({ fontSize: '2rem', fontWeight: '700' })}>とらすた</span></>
+      ) : (
+        'trasta'
+      )}
     </div>
     <div
       class={css({

@@ -3,8 +3,6 @@ import fs from 'fs'
 import path from 'path'
 import { ImageResponse } from '@vercel/og'
 
-// https://www.kozhuhds.com/blog/generating-static-open-graph-og-images-in-astro-using-vercel-og
-
 interface Props {
   params: { slug: string }
   props: { post: CollectionEntry<'blog'> }
@@ -100,11 +98,11 @@ export async function GET({ props }: Props) {
   })
 }
 
-// to generate an image for each blog posts in a collection (Japanese only)
+// to generate an image for each blog posts in a collection (English only)
 export async function getStaticPaths() {
-  const blogPosts = await getCollection('blog', ({ id }) => id.startsWith('ja/'))
+  const blogPosts = await getCollection('blog', ({ id }) => id.startsWith('en/'))
   return blogPosts.map(post => ({
-    params: { slug: post.slug.replace(/^ja\//, '') },
+    params: { slug: post.slug.replace(/^en\//, '') },
     props: { post },
   }))
 }

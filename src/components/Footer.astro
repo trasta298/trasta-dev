@@ -1,5 +1,15 @@
 ---
 import { css } from '../../styled-system/css'
+import { useTranslations, getLocalePath, type Lang } from '../i18n/utils'
+import LanguageSwitcher from './LanguageSwitcher.astro'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const privacyPolicyPath = getLocalePath('/privacy-policy', lang)
 ---
 
 <footer
@@ -13,13 +23,13 @@ import { css } from '../../styled-system/css'
     color: 'textSecond',
   })}
 >
-  <!-- © 2023 trasta | Privacy Policy -->
-  <div class={css({ fontSize: '14px', display: 'flex' })}>
-    <div class={css({ mr: '24px' })}>© 2023 trasta</div>
+  <div class={css({ fontSize: '14px', display: 'flex', alignItems: 'center', gap: '24px' })}>
+    <div>© 2023-2026 trasta</div>
     <a
-      href="/privacy-policy"
+      href={privacyPolicyPath}
       class={css({ color: 'textSecond', textDecoration: 'underline' })}
-      >Privacy Policy</a
+      >{t('footer.privacyPolicy')}</a
     >
+    <LanguageSwitcher lang={lang} />
   </div>
 </footer>

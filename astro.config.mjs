@@ -10,6 +10,21 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), sitemap()],
+  }), sitemap({
+    i18n: {
+      defaultLocale: 'ja',
+      locales: {
+        ja: 'ja-JP',
+        en: 'en-US',
+      },
+    },
+  })],
   site: "https://trasta.dev",
+  i18n: {
+    locales: ["ja", "en"],
+    defaultLocale: "ja",
+    routing: {
+      prefixDefaultLocale: false
+    }
+  }
 });
