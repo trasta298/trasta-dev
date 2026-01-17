@@ -1,17 +1,18 @@
 ---
 import { getCollection } from 'astro:content'
-import Layout from '../../layouts/Layout.astro'
-import { css } from '../../../styled-system/css'
+import Layout from '../../../layouts/Layout.astro'
+import TranslationNotice from '../../../components/TranslationNotice.astro'
+import { css } from '../../../../styled-system/css'
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro'
-import { useTranslations } from '../../i18n/utils'
+import { useTranslations } from '../../../i18n/utils'
 
-const lang = 'ja'
+const lang = 'en'
 const t = useTranslations(lang)
 
 export const getStaticPaths = (async () => {
-  const blogEntries = await getCollection('blog', ({ id }) => id.startsWith('ja/'))
+  const blogEntries = await getCollection('blog', ({ id }) => id.startsWith('en/'))
   return blogEntries.map(entry => ({
-    params: { slug: entry.slug.replace(/^ja\//, '') },
+    params: { slug: entry.slug.replace(/^en\//, '') },
     props: { entry },
   }))
 }) satisfies GetStaticPaths
@@ -20,11 +21,11 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry } = Astro.props
 const { Content } = await entry.render()
-const slugWithoutLang = entry.slug.replace(/^ja\//, '')
+const slugWithoutLang = entry.slug.replace(/^en\//, '')
 
-const url = `https://trasta.dev/blog/${slugWithoutLang}`
+const url = `https://trasta.dev/en/blog/${slugWithoutLang}`
 const xPostUrl = `https://x.com/intent/tweet?url=${url}&text=${entry.data.title}`
-const githubUrl = `https://github.com/trasta298/trasta-dev/tree/main/src/content/blog/ja/${slugWithoutLang}.mdx`
+const githubUrl = `https://github.com/trasta298/trasta-dev/tree/main/src/content/blog/en/${slugWithoutLang}.mdx`
 
 const alternateSlug = entry.data.translationSlug ? `blog/${entry.data.translationSlug}` : undefined
 ---
@@ -55,7 +56,7 @@ const alternateSlug = entry.data.translationSlug ? `blog/${entry.data.translatio
       })}
     >
       <h1 transition:name={entry.data.title}>
-        <span 
+        <span
           class={css({ mr: '4px' })}
           transition:name={`emoji-${entry.data.title}`}
         >
@@ -94,6 +95,7 @@ const alternateSlug = entry.data.translationSlug ? `blog/${entry.data.translatio
           {entry.data.date}
         </div>
       </div>
+      <TranslationNotice />
       <Content />
       <div
         class={css({

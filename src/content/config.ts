@@ -9,6 +9,7 @@ const worksCollection = defineCollection({
     date: z.string(),
     tags: z.array(z.string()),
     draft: z.boolean().optional(),
+    translationSlug: z.string().optional(),
   }),
 })
 
@@ -20,6 +21,7 @@ const blogCollection = defineCollection({
     tags: z.array(z.string()),
     emoji: z.string(),
     draft: z.boolean().optional(),
+    translationSlug: z.string().optional(),
   }),
 })
 

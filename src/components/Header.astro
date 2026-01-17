@@ -1,6 +1,15 @@
 ---
 import ThemeIcon from './ThemeIcon.astro'
 import { css } from '../../styled-system/css'
+import { getLocalePath, type Lang } from '../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const aboutPath = getLocalePath('/about', lang)
+const homePath = getLocalePath('/', lang)
 ---
 
 <header
@@ -32,7 +41,9 @@ import { css } from '../../styled-system/css'
     >
       <a
         id="titleA"
-        href="/about"
+        href={aboutPath}
+        data-home={homePath}
+        data-about={aboutPath}
         class={css({ color: 'text', textDecoration: 'none' })}
       >
         trasta.dev</a
@@ -56,8 +67,15 @@ import { css } from '../../styled-system/css'
 <script is:inline>
   const setHref = () => {
     const titleA = document.getElementById('titleA')
-    if (location.pathname === '/about' || location.pathname === '/about/') {
-      titleA?.setAttribute('href', '/')
+    if (!titleA) return
+    const homePath = titleA.dataset.home
+    const aboutPath = titleA.dataset.about
+    const currentPath = location.pathname.replace(/\/$/, '') || '/'
+    const aboutPathNormalized = aboutPath?.replace(/\/$/, '') || '/about'
+    if (currentPath === aboutPathNormalized) {
+      titleA.setAttribute('href', homePath || '/')
+    } else {
+      titleA.setAttribute('href', aboutPath || '/about')
     }
   }
   setHref()

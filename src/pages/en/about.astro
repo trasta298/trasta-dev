@@ -1,24 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Card from '../components/Card.astro'
-import BlogCard from '../components/BlogCard.astro'
-import ProfileCard from '../components/ProfileCard.astro'
-import { Content as Profile } from '../components/Profile.mdx'
-import { css } from '../../styled-system/css'
+import Layout from '../../layouts/Layout.astro'
+import Card from '../../components/Card.astro'
+import BlogCard from '../../components/BlogCard.astro'
+import ProfileCard from '../../components/ProfileCard.astro'
+import { Content as Profile } from '../../components/Profile.en.mdx'
+import { css } from '../../../styled-system/css'
 
 import { getCollection } from 'astro:content'
-import itika from '../assets/itika.png'
-import { useTranslations, getLocalePath } from '../i18n/utils'
+import itika from '../../assets/itika.png'
+import { useTranslations, getLocalePath } from '../../i18n/utils'
 
-const lang = 'ja'
+const lang = 'en'
 const t = useTranslations(lang)
 
-const worksEntries = await getCollection('works', ({ id }) => id.startsWith('ja/'))
-const blogEntriesRaw = await getCollection('blog', ({ id }) => id.startsWith('ja/'))
+const worksEntries = await getCollection('works', ({ id }) => id.startsWith('en/'))
+const blogEntriesRaw = await getCollection('blog', ({ id }) => id.startsWith('en/'))
 const blogEntries = blogEntriesRaw
   .filter(entry => !entry.data.draft)
   .map(entry => ({
-    href: `/blog/${entry.slug.replace(/^ja\//, '')}`,
+    href: getLocalePath(`/blog/${entry.slug.replace(/^en\//, '')}`, lang),
     title: entry.data.title,
     date: entry.data.date,
     emoji: entry.data.emoji,
@@ -102,7 +102,7 @@ const blogs = [...blogEntries, ...externalEntries]
             .sort((a, b) => (b.data.date > a.data.date ? 1 : -1))
             .map(entry => (
               <a
-                href={`/works/${entry.slug.replace(/^ja\//, '')}`}
+                href={getLocalePath(`/works/${entry.slug.replace(/^en\//, '')}`, lang)}
                 class={css({ color: 'text', textDecoration: 'none' })}
               >
                 <Card

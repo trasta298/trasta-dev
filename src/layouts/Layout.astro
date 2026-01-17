@@ -4,26 +4,37 @@ import Footer from '../components/Footer.astro'
 import { ViewTransitions } from 'astro:transitions'
 import { css } from '../../styled-system/css'
 import "../styles/panda.css"
+import { getLangFromUrl, getAlternatePath, type Lang } from '../i18n/utils'
 
 interface Props {
   title: string
   description: string
   thumbnail: string
   hideFooter?: boolean
+  lang?: Lang
+  alternateSlug?: string
 }
 
-const { title, description, thumbnail, hideFooter } = Astro.props
+const { title, description, thumbnail, hideFooter, lang: propLang, alternateSlug } = Astro.props
+const lang = propLang ?? getLangFromUrl(Astro.url)
 
 const domain = 'https://trasta.dev'
 const canonicalURL = new URL(Astro.url.pathname, domain)
 const thumbnailURL = new URL(thumbnail, domain)
+
+const jaPath = alternateSlug
+  ? (lang === 'ja' ? Astro.url.pathname : `/${alternateSlug}`)
+  : getAlternatePath(Astro.url.pathname, 'ja')
+const enPath = alternateSlug
+  ? (lang === 'en' ? Astro.url.pathname : `/en/${alternateSlug}`)
+  : getAlternatePath(Astro.url.pathname, 'en')
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="trasta's page" />
+    <meta name="description" content={description} />
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
@@ -43,6 +54,10 @@ const thumbnailURL = new URL(thumbnail, domain)
       rel="stylesheet"
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="ja" href={new URL(jaPath, domain)} />
+    <link rel="alternate" hreflang="en" href={new URL(enPath, domain)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(jaPath, domain)} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
@@ -94,8 +109,8 @@ const thumbnailURL = new URL(thumbnail, domain)
       // transition: 'background 0.3s',
     })}
   >
-    <Header />
+    <Header lang={lang} />
     <div><slot /></div>
-    {!hideFooter && <Footer />}
+    {!hideFooter && <Footer lang={lang} />}
   </body>
 </html>
